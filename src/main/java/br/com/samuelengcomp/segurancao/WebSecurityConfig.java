@@ -15,8 +15,9 @@ public class WebSecurityConfig{
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.authorizeHttpRequests((requests)-> requests
-				.requestMatchers("/exodia/hello").permitAll()
-				.requestMatchers("/exodia/login").hasRole("ADMIN"))
+				.requestMatchers("/exodia/login").permitAll()
+				.requestMatchers("/exodia/reforma/categoria").hasRole("ADMIN")
+				)
 		.httpBasic(Customizer.withDefaults());
 		return httpSecurity.build();
 	}

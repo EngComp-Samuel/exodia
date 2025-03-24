@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -32,7 +33,7 @@ public class CategoriaController {
 		return ResponseEntity.ok(categoria);
 	}
 	
-	@PutMapping("/remover")
+	@DeleteMapping("/remover")
 	public ResponseEntity removerRegistro(Categoria categoria) {
 		return ResponseEntity.noContent().build();
 	}

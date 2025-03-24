@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -33,7 +34,7 @@ public class ReformaController {
 		return ResponseEntity.ok(reforma);
 	}
 	
-	@PutMapping("/remover")
+	@DeleteMapping("/remover")
 	public ResponseEntity removerRegistro(Reforma reforma) {
 		return ResponseEntity.noContent().build();
 	}
