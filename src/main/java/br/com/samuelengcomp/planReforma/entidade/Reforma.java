@@ -15,7 +15,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "reforma", schema = "public")
+@Table(name = "reforma")
 public class Reforma {
 
 	@Id

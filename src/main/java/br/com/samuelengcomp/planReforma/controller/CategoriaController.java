@@ -25,6 +25,7 @@ public class CategoriaController {
 	@GetMapping
 	public List<Categoria> listar(){
 		List<Categoria> categoria = new ArrayList<>();
+		System.out.println("FUI CHAMADO");
 		return categoria;
 	}
 	

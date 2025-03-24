@@ -14,11 +14,11 @@ public class WebSecurityConfig{
 	
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-		httpSecurity.authorizeHttpRequests((requests)-> requests
-				.requestMatchers("/exodia/login").permitAll()
-				.requestMatchers("/exodia/reforma/categoria").hasRole("ADMIN")
-				)
-		.httpBasic(Customizer.withDefaults());
+		//httpSecurity.authorizeHttpRequests((requests)-> requests
+				//.requestMatchers("/exodia").permitAll()
+				//.requestMatchers("/exodia/reforma/categoria").permitAll()//.hasRole("ADMIN")
+			//	)
+	//	.httpBasic(Customizer.withDefaults());
 		return httpSecurity.build();
 	}
 
