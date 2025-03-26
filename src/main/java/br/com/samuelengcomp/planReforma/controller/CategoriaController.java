@@ -3,8 +3,12 @@ package br.com.samuelengcomp.planReforma.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,23 +16,37 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import br.com.samuelengcomp.planReforma.entidade.Categoria;
+import br.com.samuelengcomp.planReforma.repository.CategoriaRepository;
 
-@RestController
+//@RestController
+@Controller
 @RequestMapping("/reforma/categoria")
 public class CategoriaController {
 	
+	@Autowired
+	private CategoriaRepository categoriaRepository;
+	
+	
+	
 	@PostMapping("/registrar")
 	public ResponseEntity<Categoria> registrar(Categoria categoria) {
-		return ResponseEntity.ok(categoria);
+		return ResponseEntity.status(HttpStatus.OK).body(categoria);
 	}
 	
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Categoria> listar(){
-		List<Categoria> categoria = new ArrayList<>();
-		System.out.println("FUI CHAMADO");
-		return categoria;
+	@GetMapping//(produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<ModelAndView> listarCategorias(){
+		
+		Categoria cat = new Categoria("armazem 2");
+		categoriaRepository.save(cat);
+		
+		List<Categoria> categorias = categoriaRepository.findAll();
+		ModelAndView mav = new ModelAndView("index");
+		mav.addObject("categorias", categorias);
+		
+		return ResponseEntity.ok(mav);
 	}
 	
 	@GetMapping(value = "/{id}" ,produces = MediaType.APPLICATION_JSON_VALUE)

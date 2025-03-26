@@ -14,16 +14,25 @@ import jakarta.persistence.Table;
 public class Categoria {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	@Column(name = "id_categoria", nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", nullable = false)
 	private Integer id;
 	
 	@Column(name = "nome")
 	private String nome;
 	
+	public Categoria(String nome) {
+		super();
+		this.nome = nome;
+	}
+
+
+
 	public Categoria() {
 		super();
 	}
+	
+	
 
 	public Categoria(Integer id, String nome) {
 		super();

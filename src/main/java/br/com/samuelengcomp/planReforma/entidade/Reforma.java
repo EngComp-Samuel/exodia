@@ -20,7 +20,7 @@ public class Reforma {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	@Column(name = "id_reforma", nullable = false)
+	@Column(name = "id", nullable = false)
 	private Integer id;
 	
 	@Column(name = "data_registro", nullable = false)

@@ -15,7 +15,7 @@ public class Permissao {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	@Column(name = "id_permissao", nullable = false)
+	@Column(name = "id", nullable = false)
 	private Integer id;
 	
 	@Column(name = "nome")
