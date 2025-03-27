@@ -37,16 +37,17 @@ public class CategoriaController {
 	}
 	
 	@GetMapping//(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ModelAndView> listarCategorias(){
+	public ModelAndView listarCategorias(){
 		
 		Categoria cat = new Categoria("armazem 2");
 		categoriaRepository.save(cat);
 		
 		List<Categoria> categorias = categoriaRepository.findAll();
-		ModelAndView mav = new ModelAndView("index");
+		ModelAndView mav = new ModelAndView("categoria");
 		mav.addObject("categorias", categorias);
 		
-		return ResponseEntity.ok(mav);
+		//return ResponseEntity.ok(mav);
+		return mav;
 	}
 	
 	@GetMapping(value = "/{id}" ,produces = MediaType.APPLICATION_JSON_VALUE)

@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Lista de categorias</title>
+    <title>Exodia</title>
 </head>
 <body>
-    <h1>Categorias</h1>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-        </tr>
-        <tr th:each="categoria : ${categorias}">
-            <td th:text="${categoria.id}"></td>
-            <td th:text="${categoria.nome}"></td>
-        </tr>
-    </table>
+	<div>
+		<a th:href="@{/login}">Login</a>
+	</div>
+	<h2 th:text="${saudacao}"></h2>
+    <h1 th:text = "${nomeSistema}" ></h1>
+    <p th:text = ${descricaoSistema}></p>
+    <p th:text = ${copyright}></p>
 </body>
 </html>
